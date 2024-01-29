@@ -1,0 +1,55 @@
+#calculator{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 555px;
+}
+
+.button{
+    width: 150px;
+    height: 75px;
+}
+
+.wide{
+    width: 300px;
+    height: 75px;
+}
+
+.tall{
+    width: 150px;
+    height: 150px;
+}
+
+#buttons{
+    width: 600px;
+    height: 375px;
+    border: 3px solid black;
+    display: flex;
+}
+
+.verticalButtons
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontalButtons
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#total
+{
+    height: 75px;
+    width: 600px;
+    text-align: end;
+    border: 3px solid black;
+}
+
+#calculations{
+    height: 30px;
+    width: 600px;
+    text-align: end;
+    border: 3px solid black;
+}
