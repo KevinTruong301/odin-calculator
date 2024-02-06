@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <script src="calc.js"></script>
+    <script src="calc.js" defer></script>
 </head>
 <body>
     <div id="calculator">
@@ -13,31 +13,31 @@
         <div id="total"></div>
         <div id="buttons">
             <div class="horizontalButtons">
-                <button class="button">C</button>
-                <button class="button"></button>
-                <button class="button">\</button>
+                <button id="clear" class="button">C</button>
+                <button id="clearEntry" class="button">CE</button>
+                <button class="button operation">\</button>
 
-                <button class="button">7</button>
-                <button class="button">8</button>
-                <button class="button">9</button>
+                <button class="button number">7</button>
+                <button class="button number">8</button>
+                <button class="button number">9</button>
 
-                <button class="button">4</button>
-                <button class="button">5</button>
-                <button class="button">6</button>
+                <button class="button number">4</button>
+                <button class="button number">5</button>
+                <button class="button number">6</button>
 
-                <button class="button">1</button>
-                <button class="button">2</button>
-                <button class="button">3</button>
+                <button class="button number">1</button>
+                <button class="button number">2</button>
+                <button class="button number">3</button>
 
-                <button class="button wide">0</button>
+                <button class="button number wide">0</button>
                 <button class="button">.</button>
 
             </div>
             <div class="verticalButtons">
-                <button class="button">X</button>
-                <button class="button">-</button>
-                <button class="button">+</button>
-                <button class="button tall">=</button>
+                <button class="button operation">X</button>
+                <button class="button operation">-</button>
+                <button class="button operation">+</button>
+                <button id="equals" class="button tall">=</button>
             </div>
         </div>
     </div>
