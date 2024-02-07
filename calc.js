@@ -24,16 +24,9 @@ Array.from(numberButtons).forEach(element => {
 const operationButtons = document.querySelectorAll(".operation");
 [...operationButtons].forEach(element => {
     element.addEventListener("click", () => {
-        if(lastOperation != "")
-        {
-            
-        }
-        else
-        {
-            firstNum = parseFloat(totalBox.textContent);
-            calculationsBox.textContent = totalBox.textContent + " " + element.textContent;
-        }
-
+        firstNum = parseFloat(totalBox.textContent);
+        calculationsBox.textContent = totalBox.textContent + " " + element.textContent;
+        
         lastButton = element.textContent;
         lastOperation = element.textContent;
     });
@@ -80,9 +73,21 @@ function isOperator(i)
 
 const equalsButton = document.querySelector("#equals");
 equalsButton.addEventListener("click", () => {
-    secondNum = totalBox.textContent;
-    calculationsBox.textContent += " " + secondNum;
-    Calculate();
+    if(lastButton == equalsButton.textContent)
+    {
+        firstNum = parseFloat(totalBox.textContent);
+        calculationsBox.textContent = firstNum + " " + lastOperation + " " + secondNum;
+        totalBox.textContent = Arithmetic(lastOperation, firstNum, secondNum);
+
+    }
+    else
+    {
+        secondNum = parseFloat(totalBox.textContent);
+        calculationsBox.textContent += " " + secondNum;
+        Calculate();
+    }
+
+    lastButton = equalsButton.textContent;
 });
 
 const clearEntryButton = document.querySelector("#clearEntry");
@@ -96,5 +101,7 @@ clearButton.addEventListener("click", () => {
     calculationsBox.textContent = "";
     lastOperation = "";
     lastButton = "=";
+    firstNum = null;
+    secondNum = null;
 });
 
