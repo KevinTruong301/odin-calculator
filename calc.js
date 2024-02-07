@@ -3,11 +3,19 @@ const totalBox = document.querySelector("#total");
 const calculationsBox = document.querySelector("#calculations");
 let lastButton = "=";
 let lastOperation = "";
-let storedNum;
+let firstNum;
+let secondNum;
 
 Array.from(numberButtons).forEach(element => {
     element.addEventListener("click", () => {
-        totalBox.textContent += element.textContent;
+        if(isOperator(lastButton))
+        {
+            totalBox.textContent = element.textContent;
+        }
+        else
+        {
+            totalBox.textContent += element.textContent;
+        }
 
         lastButton = element.textContent;
     });
@@ -22,9 +30,8 @@ const operationButtons = document.querySelectorAll(".operation");
         }
         else
         {
-            storedNum = parseFloat(totalBox.textContent);
+            firstNum = parseFloat(totalBox.textContent);
             calculationsBox.textContent = totalBox.textContent + " " + element.textContent;
-            totalBox.textContent = "";
         }
 
         lastButton = element.textContent;
@@ -34,7 +41,6 @@ const operationButtons = document.querySelectorAll(".operation");
 
 function Calculate()
 {
-    let firstNum = storedNum;
     let secondNum = parseFloat(totalBox.textContent);
     //take current and use last operation to add
     totalBox.textContent = Arithmetic(lastOperation, firstNum, secondNum);
@@ -60,8 +66,22 @@ function Arithmetic(operator, first, second)
     }
 }
 
+function isOperator(i)
+{
+    if(i == '+' ||
+    i == '-' ||
+    i == '/' ||
+    i == 'X' ||
+    i == '=')
+        return true;
+
+    return false;
+}
+
 const equalsButton = document.querySelector("#equals");
 equalsButton.addEventListener("click", () => {
+    secondNum = totalBox.textContent;
+    calculationsBox.textContent += " " + secondNum;
     Calculate();
 });
 
